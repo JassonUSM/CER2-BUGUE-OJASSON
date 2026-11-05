@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Gestión Patrimonial</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Paleta de colores personalizada -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/paleta.css' %}">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                <div class="card auth-card p-4">
+                    <div class="text-center mb-4">
+                        <h3 class="fw-bold" style="color: var(--palette-darkest);">Iniciar Sesión</h3>
+                        <p class="text-secondary small">Acceda a su cuenta patrimonial</p>
+                    </div>
+                    
+                    <!-- Formulario puramente HTML listo para integrar con Django después -->
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        {% if form.errors or fallo %}
+                            <div class="alert alert-danger py-2 small mb-3" role="alert">
+                                Usuario o contraseña incorrectos. Por favor, intente nuevamente.
+                            </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-semibold small">Usuario</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de usuario" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-semibold small">Contraseña</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-custom py-2 fw-semibold">Ingresar</button>
+                        </div>
+                    </form>
+
+                    <!-- Sección de redirección al Registro -->
+                    <div class="text-center mt-4">
+                        <p class="small text-secondary mb-1">¿No tienes una cuenta registrada?</p>
+                        <a href="{% url 'registro' %}" class="text-decoration-none small link-custom">Regístrate aquí</a>
+                    </div>
+
+                    <div class="text-center mt-3 border-top pt-3">
+                        <a href="{% url 'home' %}   " class="text-decoration-none small text-muted">← Volver al inicio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

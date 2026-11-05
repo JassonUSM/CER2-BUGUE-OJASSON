@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Lugar Patrimonial</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/paleta.css' %}">
+</head>
+<body>
+
+    <!-- Navbar simple de ejemplo -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--palette-darkest);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Patrimonio Vivo</a>
+            <a href="#" class="btn btn-outline-light btn-sm">Volver al Catálogo</a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal del Detalle -->
+    <main class="container my-5">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Columna de la Imagen -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0">
+                    <!-- Aquí colocarás luego la variable de la imagen de tu modelo -->
+                    <img src="{{ lugar.imagen }}" class="card-img-top rounded" alt="Imagen del lugar patrimonial" style="max-height: 400px; object-fit: cover;">
+                </div>
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="p-4 bg-white rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <!-- Categoria -->
+                        <span class="badge mb-3 bg-custom-dark">{{ lugar.categoria }}</span>
+                        
+                        <!-- Título del Lugar -->
+                        <h1 class="fw-bold mb-3" style="color: var(--palette-darkest);">{{ lugar.nombre }}</h1>
+                        
+                        <!-- Descripcion Completa -->
+                        <p class="text-secondary mb-4">
+                            {{ lugar.descripcion }}
+                        </p>
+                        
+                        <!-- Ubicacion y Año -->
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><strong>📍 Ubicación:</strong> {{ lugar.ubicacion }}</li>
+                            <li><strong> Año de Construcción:</strong> {{ lugar.anioConstruccion }}</li>
+                        </ul>
+                    </div>
+
+                    <!-- Botones de Acción (Volver, etc.) -->
+                    <div class="d-flex gap-2">
+                        <a href="{% url 'catalogo' %}" class="btn btn-custom w-100 btn-custom-primary">Regresar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

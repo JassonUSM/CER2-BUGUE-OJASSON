@@ -1,0 +1,43 @@
+
+/* Fondo general de la aplicación */
+body {
+    background-color: #EAF2F8 !important;
+    color: #1D2D44;
+}
+
+
+/* Navbar y Footer personalizados */
+.bg-custom-dark {
+    background-color: #1D2D44 !important;
+}
+
+/* Botones principales personalizados */
+.btn-custom-primary {
+    background-color: #3E5C76;
+    color: #ffffff;
+    border: none;
+}
+.btn-custom-primary:hover {
+    background-color: #1D2D44;
+    color: #ffffff;
+}
+
+/* Tarjetas y contenedores con la paleta */
+.card-custom {
+    background-color: #ffffff;
+    border: 1px solid #8AA9C4 !important;
+}
+
+.badge-custom {
+    background-color: #3E5C76 !important;
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    border-color: #8AA9C4;
+}
+
+.dropdown-item:hover {
+    background-color: #EAF2F8;
+    color: #1D2D44;
+}
